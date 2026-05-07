@@ -1,51 +1,50 @@
 # Guía de Desarrollo - Digital Experience
 
-## 📋 Información de tu Scratch Org
+## 📋 Información de tu Org de Desarrollo
 
 | Propiedad | Valor |
 |-----------|-------|
-| **Alias** | `dev-experience` |
-| **Username** | `test-wq0f1xo6oe8k@example.com` |
-| **Org ID** | `00DC3000003Avsv` |
-| **Estado** | ✅ Activa (30 días desde creación) |
-| **URL** | https://orgfarm-c4a1ee91f4-dev-ed.develop.my.salesforce.com |
+| **Alias** | `AGuev` |
+| **Username** | `alexis.guevara0197@cunning-wolf-84amfg.com` |
+| **Tipo** | Org de Desarrollo |
+| **Estado** | ✅ Activa |
+| **Site** | `My_Portfolio1` |
 
 ---
 
-## 🔓 Cómo acceder a tu Scratch Org
+## 🔓 Cómo acceder a tu Org de Desarrollo
 
 ### Opción 1: Desde el terminal (Recomendado)
 ```bash
-sf org open --target-org dev-experience
+sf org open --target-org AGuev
 ```
-Esto abrirá automáticamente tu scratch org en el navegador.
+Esto abrirá automáticamente tu org en el navegador.
 
-### Opción 2: Acceso manual
-1. Ve a la URL: `https://orgfarm-c4a1ee91f4-dev-ed.develop.my.salesforce.com`
-2. Username: `test-wq0f1xo6oe8k@example.com`
-3. Password: La que configuraste durante la autenticación
-
-### Opción 3: Ver todas las orgs conectadas
+### Opción 2: Ver todas las orgs conectadas
 ```bash
-sf org list
+sf org list --all
 ```
+
+### Opción 3: Acceso manual
+Usa las credenciales de tu Salesforce con el usuario: `alexis.guevara0197@cunning-wolf-84amfg.com`
 
 ---
 
 ## 📦 Flujo de Trabajo: Desarrollo → Live
 
-### Paso 1: Establecer la scratch org como destino
+### Paso 1: Verificar que AGuev es tu org por defecto
 ```bash
-sf org set --target-org dev-experience
+# Ver org actual
+sf config get target-org
+
+# Si no es AGuev, establécela
+sf config set target-org=AGuev
 ```
 
-### Paso 2: Recuperar componentes de Digital Experience
+### Paso 2: Tu Digital Experience site está aquí
 ```bash
-# Recuperar todos los Digital Experience sites
-sf project retrieve start --metadata ExperienceBundle
-
-# O recuperar un site específico
-sf project retrieve start --metadata ExperienceBundle:NombreDelSite
+# El site My_Portfolio1 ya está en:
+# force-app/main/default/experiences/My_Portfolio1/
 ```
 
 ### Paso 3: Crear/Modificar componentes localmente
@@ -56,7 +55,7 @@ sf lightning generate component --type lwc --name miComponente
 # O editar archivos en: force-app/main/default/lwc/
 ```
 
-### Paso 4: Desplegar cambios a la scratch org (testing)
+### Paso 4: Desplegar cambios a AGuev (testing)
 ```bash
 # Desplegar solo componentes LWC
 sf project deploy start --source-dir force-app/main/default/lwc
@@ -68,11 +67,11 @@ sf project deploy start --source-dir force-app/main/default/experiences,force-ap
 sf project deploy start
 ```
 
-### Paso 5: Verificar en la scratch org
+### Paso 5: Verificar en tu org AGuev
 ```bash
-sf org open --target-org dev-experience
+sf org open --target-org AGuev
 ```
-Ingresa a tu site de Digital Experience y verifica los cambios.
+Ingresa a tu site **My_Portfolio1** y verifica los cambios.
 
 ---
 
@@ -85,8 +84,8 @@ Ingresa a tu site de Digital Experience y verifica los cambios.
 # Ver todas las orgs
 sf org list
 
-# Cambiar a tu org de producción (usa el alias correcto)
-sf org set --target-org Portfolio  # O el alias de tu org de producción
+# Cambiar a tu org de producción
+sf config set target-org=Portfolio
 ```
 
 2. **Verificar cambios antes de desplegar:**
@@ -123,23 +122,26 @@ sf project deploy report --job-id <JOB_ID>
 └────────────────┬────────────────────────────────────────┘
                  │
 ┌────────────────▼────────────────────────────────────────┐
-│  2. Desplegar a SCRATCH ORG (dev-experience)            │
+│  2. Desplegar a AGuev (org de desarrollo)               │
 │     sf project deploy start --source-dir force-app/...  │
 └────────────────┬────────────────────────────────────────┘
                  │
 ┌────────────────▼────────────────────────────────────────┐
-│  3. Probar en scratch org                               │
-│     sf org open --target-org dev-experience             │
+│  3. Probar en AGuev                                     │
+│     sf org open --target-org AGuev                      │
+│     Abre My_Portfolio1 y verifica cambios               │
 └────────────────┬────────────────────────────────────────┘
                  │
 ┌────────────────▼────────────────────────────────────────┐
 │  4. Si todo funciona → Commit git                       │
 │     git add . && git commit -m "Add new component"      │
+│     git push origin main                                │
 └────────────────┬────────────────────────────────────────┘
                  │
 ┌────────────────▼────────────────────────────────────────┐
 │  5. Desplegar a PRODUCCIÓN (Portfolio)                  │
-│     sf project deploy start --target-org Portfolio      │
+│     sf config set target-org=Portfolio                  │
+│     sf project deploy start                             │
 └────────────────┬────────────────────────────────────────┘
                  │
 ┌────────────────▼────────────────────────────────────────┐
@@ -155,8 +157,8 @@ sf project deploy report --job-id <JOB_ID>
 # Ver estado de los orgs conectadas
 sf org list --all
 
-# Abrir scratch org
-sf org open --target-org dev-experience
+# Abrir org de desarrollo
+sf org open --target-org AGuev
 
 # Abrir org de producción
 sf org open --target-org Portfolio
@@ -165,34 +167,25 @@ sf org open --target-org Portfolio
 sf project deploy report --most-recent
 
 # Ejecutar SOQL query
-sf data query -q "SELECT Id, Name FROM Account LIMIT 10" --target-org dev-experience
+sf data query -q "SELECT Id, Name FROM Account LIMIT 10" --target-org AGuev
 
 # Ver archivos en la org
-sf project retrieve start --metadata ApexClass,LightningComponentBundle --target-org dev-experience
-```
+sf project retrieve start --metadata ApexClass,LightningComponentBundle --target-org AGuev
 
----
-
-## ⏰ Vigencia de la Scratch Org
-
-- **Creada:** 6 de Mayo 2026
-- **Expira en:** 30 días (5 de Junio 2026)
-- **Cuando expire:** Deberás crear una nueva scratch org con el mismo comando
-
-Para crear una nueva scratch org cuando esta expire:
-```bash
-sf org create scratch --definition-file config/project-scratch-def.json --alias dev-experience --target-dev-hub CrashCourse
+# Establecer org por defecto
+sf config set target-org=AGuev
 ```
 
 ---
 
 ## 📝 Notas Importantes
 
-1. **Usa siempre la scratch org para desarrollo** - No hagas cambios directamente en producción
-2. **Commit frecuente en git** - Mantén tu código respaldado
-3. **Test antes de desplegar** - Siempre prueba en scratch org primero
+1. **Usa siempre AGuev para desarrollo** - Aquí tienes tu site My_Portfolio1
+2. **Commit frecuente en git** - Mantén tu código respaldado en GitHub
+3. **Test antes de desplegar** - Siempre prueba en AGuev primero
 4. **Documentación del código** - Agrega comentarios en tus LWC
 5. **Backup de orgs** - Usa `sf project retrieve start` regularmente para guardar cambios
+6. **ExperienceBundle activado** - Ya está habilitado en tu org para trabajar con Metadata API
 
 ---
 
@@ -200,10 +193,10 @@ sf org create scratch --definition-file config/project-scratch-def.json --alias 
 
 | Problema | Solución |
 |----------|----------|
-| No puedo acceder a la scratch org | Ejecuta: `sf org open --target-org dev-experience` |
-| Necesito recrear la scratch org | `sf org delete --target-org dev-experience` y luego crear una nueva |
+| No puedo acceder a AGuev | Ejecuta: `sf org open --target-org AGuev` |
+| Necesito cambiar a otra org | `sf config set target-org=<alias>` |
 | Deploy falla | Revisa logs: `sf project deploy report --most-recent` |
-| No encuentro mi site de Digital Experience | Recupera con: `sf project retrieve start --metadata ExperienceBundle` |
+| No encuentro mi site My_Portfolio1 | Recupera con: `sf project retrieve start --metadata ExperienceBundle:My_Portfolio1` |
 
 ---
 
