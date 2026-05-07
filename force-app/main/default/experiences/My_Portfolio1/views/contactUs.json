@@ -1,0 +1,62 @@
+{
+  "appPageId" : "a454acec-67ae-45ec-94df-64755ed3dee8",
+  "componentName" : "siteforce:sldsTwoCol48Layout",
+  "dataProviders" : [ ],
+  "id" : "61a39400-d31a-46e8-a2bb-f9df485a49e0",
+  "label" : "Contact Us",
+  "regions" : [ {
+    "id" : "1e620aa4-80e1-40fd-a999-5a88449c9053",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<form action=\"https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Daj00000nlr6H\" method=\"POST\">\n\n<input type=hidden name=\"oid\" value=\"00Daj00000nlr6H\">\n<input type=hidden name=\"retURL\" value=\"https://cunning-wolf-84amfg-dev-ed.trailblaze.my.site.com/portfolio/s/thank-you\">\n\n<!--  ----------------------------------------------------------------------  -->\n<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->\n<!--  these lines if you wish to test in debug mode.                          -->\n<!--  <input type=\"hidden\" name=\"debug\" value=1>                              -->\n<!--  <input type=\"hidden\" name=\"debugEmail\"                                  -->\n<!--  value=\"alexis.guevara0197@gmail.com\">                                   -->\n<!--  ----------------------------------------------------------------------  -->\n\n<label for=\"first_name\">First Name</label><input  id=\"first_name\" maxlength=\"40\" name=\"first_name\" size=\"20\" type=\"text\" /><br>\n\n<label for=\"last_name\">Last Name</label><input  id=\"last_name\" maxlength=\"80\" name=\"last_name\" size=\"20\" type=\"text\" /><br>\n\n<label for=\"email\">Email</label><input  id=\"email\" maxlength=\"80\" name=\"email\" size=\"20\" type=\"text\" /><br>\n\n<label for=\"company\">Company</label><input  id=\"company\" maxlength=\"40\" name=\"company\" size=\"20\" type=\"text\" /><br>\n\n<label for=\"description\">Description</label><textarea name=\"description\"></textarea><br>\n\n<input type=\"submit\" name=\"submit\">\n\n</form>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "9778896d-a217-4256-b584-16fde640081c",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "825ead41-d45e-471a-8ca3-278fa106843f",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\">Contact Me</p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "a15a3c6c-cc99-4b57-a663-f8be0a0cf7de",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f589aec0-27de-4513-87e5-dce3ad1667ef",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "5c6f7a6d-5faf-4a72-aece-c308ed3e1685",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Contact Us"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "9f2b1dea-3886-4933-8a3e-f2270011d910",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9b7d9839-bb81-486e-9425-32ee9c4170a6",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "contactsupport"
+}

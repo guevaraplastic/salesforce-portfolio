@@ -1,0 +1,92 @@
+{
+  "appPageId" : "a454acec-67ae-45ec-94df-64755ed3dee8",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "d16132c4-8c3c-4c3a-9011-1bf9381bcd28",
+  "label" : "About Me",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 85,
+        "sectionConfig" : {
+          "UUID" : "3856e8b5-f388-43f6-9213-590ff087c128",
+          "columns" : [ {
+            "UUID" : "0aa3113a-3888-43e7-b257-b4cea5d9a64b",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "4",
+            "seedComponents" : [ ]
+          }, {
+            "UUID" : "8dad5612-adc0-46d8-a980-919f426b9cbc",
+            "columnKey" : "965fe",
+            "columnName" : "Column 2",
+            "columnWidth" : "8",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 400
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "3856e8b5-f388-43f6-9213-590ff087c128",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.profilr.1}\"></p>"
+          },
+          "componentName" : "forceCommunity:richTextInline",
+          "id" : "552cdc15-b1d5-44c6-95f6-c9d1a83ac7aa",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "0aa3113a-3888-43e7-b257-b4cea5d9a64b",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "richTextValue" : "<p style=\"text-align: center;\"><strong style=\"font-size: 36px;\">About Me</strong></p><p style=\"text-align: justify;\"><span style=\"font-size: 28px;\">In four years of experience in a company that dedicates to telecommunications, I have had to be versatile moving in different areas of systems engineering. The goal is to find solutions for clients, whether in IT, database, or coding.</span></p><p style=\"text-align: justify;\"><span style=\"font-size: 28px;\">In addition to my daily work, I also give technical support to local import-export businesses where I update old servers and leave them with the most recent versions of Windows Server.&nbsp;</span></p>"
+          },
+          "componentName" : "forceCommunity:richTextInline",
+          "id" : "93b0de68-57df-4545-932f-a9705898d3c1",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "8dad5612-adc0-46d8-a980-919f426b9cbc",
+        "regionLabel" : "Column 2",
+        "regionName" : "965fe",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0062bab2-26b0-4655-ac4b-0aba4c110da4",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "About Me"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "14ee20b5-2044-49d3-a801-426508fb1972",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8ffdde55-fd76-45c0-b9b7-49b0433692cd",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-about"
+}
