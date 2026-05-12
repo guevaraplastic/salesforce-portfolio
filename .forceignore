@@ -11,4 +11,6 @@ package.xml
 # LWC Jest
 **/__tests__/**
 
+**/experiences/**
+
 node_modules/
